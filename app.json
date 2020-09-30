@@ -1,10 +1,10 @@
 {
-  "name": "myreactapp",
-  "displayName": "myreactapp",
+  "name": "The Brew Judge",
+  "displayName": "The Brew Judge",
   "expo": {
     "name": "myreactapp",
     "slug": "myreactapp",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "assetBundlePatterns": [
       "**/*"
     ]
