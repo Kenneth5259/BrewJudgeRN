@@ -8,39 +8,48 @@ const RegistrationForm = ({navigation}) => {
     const [passConfirm, onChangePassConfirm] = React.useState("");
 
     return(
-        <View style={styles.view}>
-            <TextInput
-                onChangeText={text => onChangeEmail(text)}
-                value={email}
-                placeholder="Email"
-                style={styles.input}
-            />
-            <TextInput
-                onChangeText={text => onChangeEmailConfirm(text)}
-                placeholder="Confirm Email"
-                value={emailConfirm}
-                style={styles.input}
-            />
-            <TextInput
-                onChangeText={text => onChangePassword(text)}
-                secureTextEntry={true}
-                placeholder="Password"
-                value={password}
-                style={styles.input}
-            />
-            <TextInput
-                onChangeText={text => onChangePassConfirm(text)}
-                placeholder="Confirm Password"
-                secureTextEntry={true}
-                value={passConfirm}
-                style={styles.input}
-            />
-            <TouchableOpacity style={styles.button} onPress={() => postInformation(email, emailConfirm, password, passConfirm)}>
-                <Text style={styles.buttonText}>Register</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Log In')}>
-                <Text style={styles.buttonText}>Switch to Login</Text>
-            </TouchableOpacity>
+        <View style={styles.viewBody}>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    onChangeText={text => onChangeEmail(text)}
+                    value={email}
+                    placeholder="Email"
+                    style={styles.input}
+                />
+                <TextInput
+                    onChangeText={text => onChangeEmailConfirm(text)}
+                    placeholder="Confirm Email"
+                    value={emailConfirm}
+                    style={styles.input}
+                />
+                <TextInput
+                    onChangeText={text => onChangePassword(text)}
+                    secureTextEntry={true}
+                    placeholder="Password"
+                    value={password}
+                    style={styles.input}
+                />
+                <TextInput
+                    onChangeText={text => onChangePassConfirm(text)}
+                    placeholder="Confirm Password"
+                    secureTextEntry={true}
+                    value={passConfirm}
+                    style={styles.input}
+                />
+            </View>
+            <View style={styles.buttonContainer}>
+
+                <TouchableOpacity style={styles.button} onPress={() => postInformation(email, emailConfirm, password, passConfirm)}>
+                    <Text style={styles.buttonText}>Register</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Log In')}>
+                    <Text style={styles.buttonText}>Switch to Login</Text>
+                </TouchableOpacity>
+            </View>
+            
+            
         </View>
     );
 }
@@ -50,8 +59,13 @@ const postInformation = (email, emailConfirm, password, passConfirm) => {
 }
 
 const styles = StyleSheet.create({
-    view: {
-        marginTop: 175
+    viewBody: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        
+    },
+    inputContainer: {
+        paddingTop: '10%'
     },
     input: {
         padding: 20,
@@ -62,11 +76,20 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         color: 'black'
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        width: '50%',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignSelf:'center'
+    },
     button: {
+        flex: 2,
+        flexDirection: 'row',
         margin: 20,
-        marginLeft: 100,
-        marginRight: 100,
         backgroundColor: 'black',
+        justifyContent: 'center',
+        alignContent: 'center',
         padding: 15, 
         borderRadius: 25
     },
