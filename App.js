@@ -6,6 +6,7 @@ import 'react-native-gesture-handler';
 
 import RegistrationForm from './views/registrationForm/registration-form';
 import LoginForm from './views/loginForm/login-form';
+import mapView from './views/mapView/mapView';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +20,9 @@ const App = () => {
         />
         <Stack.Screen 
           name="Log In"
-          component={LoginForm}
+          component={mapView}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
     

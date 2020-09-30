@@ -6,16 +6,16 @@ const Footer = () => {
         <View style={{justifyContent: 'flex-end'}}>
             <View style={styles.nav}>
                 <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navItemText}>Hello 1</Text>
+                    <Text style={styles.navItemText}>{"Brew\nView"}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navItemText}>Hello 2</Text>
+                    <Text style={styles.navItemText}>{"Brew\nMap"}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navItemText}>Hello 3</Text>
+                    <Text style={styles.navItemText}>Favorites</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.navItem}>
-                    <Text style={styles.navItemText}>Hello 4</Text>
+                    <Text style={styles.navItemText}>{"User\nInfo"}</Text>
                 </TouchableOpacity>
             </View>
         </View>
