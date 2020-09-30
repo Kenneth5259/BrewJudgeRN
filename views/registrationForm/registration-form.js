@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, TextInput, View, Text,TouchableOpacity} from 'react-native';
 
+import Footer from '../../components/footer/footer';
+
 const RegistrationForm = ({navigation}) => {
     const [email, onChangeEmail] = React.useState("");
     const [emailConfirm, onChangeEmailConfirm] = React.useState("");
@@ -8,48 +10,50 @@ const RegistrationForm = ({navigation}) => {
     const [passConfirm, onChangePassConfirm] = React.useState("");
 
     return(
-        <View style={styles.viewBody}>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    onChangeText={text => onChangeEmail(text)}
-                    value={email}
-                    placeholder="Email"
-                    style={styles.input}
-                />
-                <TextInput
-                    onChangeText={text => onChangeEmailConfirm(text)}
-                    placeholder="Confirm Email"
-                    value={emailConfirm}
-                    style={styles.input}
-                />
-                <TextInput
-                    onChangeText={text => onChangePassword(text)}
-                    secureTextEntry={true}
-                    placeholder="Password"
-                    value={password}
-                    style={styles.input}
-                />
-                <TextInput
-                    onChangeText={text => onChangePassConfirm(text)}
-                    placeholder="Confirm Password"
-                    secureTextEntry={true}
-                    value={passConfirm}
-                    style={styles.input}
-                />
+        <View style={styles.view}>
+            <View style={styles.viewBody}>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        onChangeText={text => onChangeEmail(text)}
+                        value={email}
+                        placeholder="Email"
+                        style={styles.input}
+                    />
+                    <TextInput
+                        onChangeText={text => onChangeEmailConfirm(text)}
+                        placeholder="Confirm Email"
+                        value={emailConfirm}
+                        style={styles.input}
+                    />
+                    <TextInput
+                        onChangeText={text => onChangePassword(text)}
+                        secureTextEntry={true}
+                        placeholder="Password"
+                        value={password}
+                        style={styles.input}
+                    />
+                    <TextInput
+                        onChangeText={text => onChangePassConfirm(text)}
+                        placeholder="Confirm Password"
+                        secureTextEntry={true}
+                        value={passConfirm}
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.buttonContainer}>
+                    <View style={styles.buttonWrapper}>
+                        <TouchableOpacity style={styles.button} onPress={() => postInformation(email, emailConfirm, password, passConfirm)}>
+                            <Text style={styles.buttonText}>Register</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.buttonWrapper}>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Log In')}>
+                            <Text style={styles.buttonText}>Switch to Login</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
-            <View style={styles.buttonContainer}>
-
-                <TouchableOpacity style={styles.button} onPress={() => postInformation(email, emailConfirm, password, passConfirm)}>
-                    <Text style={styles.buttonText}>Register</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Log In')}>
-                    <Text style={styles.buttonText}>Switch to Login</Text>
-                </TouchableOpacity>
-            </View>
-            
-            
+            <Footer style={{alignSelf: 'flex-end'}}/>
         </View>
     );
 }
@@ -59,15 +63,24 @@ const postInformation = (email, emailConfirm, password, passConfirm) => {
 }
 
 const styles = StyleSheet.create({
-    viewBody: {
+    view: {
         flexDirection: 'column',
-        justifyContent: 'center',
-        
+        flex: 1,
+        justifyContent: "space-between",
+        alignItems: 'stretch'
+    },
+    viewBody: {
+        flex: 0,
+        marginTop: '20%'
     },
     inputContainer: {
-        paddingTop: '10%'
+        flex: 0,
+        paddingTop: '15%',
+        paddingBottom: '15%',
     },
     input: {
+        flexDirection: 'row',
+        justifyContent: 'center',
         padding: 20,
         marginLeft: 20,
         marginRight: 20,
@@ -77,14 +90,17 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     buttonContainer: {
-        flexDirection: 'row',
+        marginTop: '5%'
+    },
+    buttonWrapper: {
+        flex: 0,
+        flexDirection: 'column',
         width: '50%',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignContent: 'center',
-        alignSelf:'center'
+        alignSelf: 'center',
     },
     button: {
-        flex: 2,
         flexDirection: 'row',
         margin: 20,
         backgroundColor: 'black',
@@ -97,6 +113,10 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 20
+    }, 
+    footerSpacer: {
+        flexDirection: 'column',
+        alignSelf: 'center'
     }
 })
 
