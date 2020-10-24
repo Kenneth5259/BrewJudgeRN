@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet, TextInput, View, Text,TouchableOpacity} from 'react-native';
 
 const LoginForm = ( {navigation} ) => {
-    const [email, onChangeEmail] = React.useState("");
-    const [password, onChangePassword] = React.useState("");
+    const [email, onChangeEmail] = React.useState("Enter Email");
+    const [password, onChangePassword] = React.useState("Enter Password");
 
     return(
         <View style={styles.view}>
