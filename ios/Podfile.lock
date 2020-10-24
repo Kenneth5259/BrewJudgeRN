@@ -3,6 +3,13 @@ PODS:
   - CocoaAsyncSocket (7.6.4)
   - CocoaLibEvent (1.0.0)
   - DoubleConversion (1.1.6)
+  - EXCamera (9.0.0):
+    - UMBarCodeScannerInterface
+    - UMCore
+    - UMFaceDetectorInterface
+    - UMFileSystemInterface
+    - UMImageLoaderInterface
+    - UMPermissionsInterface
   - EXConstants (9.2.0):
     - UMConstantsInterface
     - UMCore
@@ -22,7 +29,7 @@ PODS:
     - UMCore
   - EXLinearGradient (8.3.1):
     - UMCore
-  - EXLocation (9.0.0):
+  - EXLocation (9.0.1):
     - UMCore
     - UMPermissionsInterface
     - UMTaskManagerInterface
@@ -35,7 +42,7 @@ PODS:
   - EXSQLite (8.4.0):
     - UMCore
     - UMFileSystemInterface
-  - EXUpdates (0.3.4):
+  - EXUpdates (0.3.5):
     - React
     - UMCore
   - FBLazyVector (0.63.3)
@@ -349,7 +356,7 @@ PODS:
   - UMBarCodeScannerInterface (5.3.0)
   - UMCameraInterface (5.3.0)
   - UMConstantsInterface (5.3.0)
-  - UMCore (5.5.0)
+  - UMCore (5.5.1)
   - UMFaceDetectorInterface (5.3.0)
   - UMFileSystemInterface (5.3.0)
   - UMFontInterface (5.3.0)
@@ -368,6 +375,7 @@ PODS:
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - EXCamera (from `../node_modules/expo-camera/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
@@ -465,6 +473,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  EXCamera:
+    :path: "../node_modules/expo-camera/ios"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
   EXErrorRecovery:
@@ -585,6 +595,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
   DoubleConversion: cde416483dac037923206447da6e1454df403714
+  EXCamera: 380af15f6944112cc7993b735e5f72af857c609f
   EXConstants: 6ec1ea4a13ec734c7e2274bc9e5b7408d73007a1
   EXErrorRecovery: cfb65ec51567cf57a00b2720a2367ac009298319
   EXFileSystem: efd6c0225f90c8b2c85131d578a09e13197e8b70
@@ -592,11 +603,11 @@ SPEC CHECKSUMS:
   EXImageLoader: 0b33400e65955c5510a09afc2f9bb369a81e1c6e
   EXKeepAwake: 4502a0ed7b7c5135587004e6d118acf8cea055fc
   EXLinearGradient: 54bec9b1b4940407fc498cab6a0c49c617c8cf54
-  EXLocation: 2d7aceb4d537d418a7d80df179b451c2cff8e99d
+  EXLocation: 210d39a6e5d793f9721117a11c0b27dc523a3183
   EXPermissions: 5797c6c72efb411b2bbf502cd5acd841e3ffeefa
   EXSplashScreen: accde6b1aaa87f395d6c5e0542e23d5c09a549ab
   EXSQLite: 246074ef810a3b5e41c0cf8cde141adccc3b0f6b
-  EXUpdates: 48c166b7d174784352bbf3cc498e482cc05fe4c5
+  EXUpdates: 305ea4c81ed9e6f70274c1f5fe765d646d5dcbdc
   FBLazyVector: 878b59e31113e289e275165efbe4b54fa614d43d
   FBReactNativeSpec: 7da9338acfb98d4ef9e5536805a0704572d33c2f
   Flipper: be611d4b742d8c87fbae2ca5f44603a02539e365
@@ -640,7 +651,7 @@ SPEC CHECKSUMS:
   UMBarCodeScannerInterface: 198ced513a0cf8143d822620f1620bce467d02be
   UMCameraInterface: dbcaade8d0364ba5518ae4519c63c59bf010aa89
   UMConstantsInterface: 2ad180a29afdf28607d11d6e23c90793d294ea0e
-  UMCore: db635e8fcaf743f418484e9f9b9245bb2495f07a
+  UMCore: 9b6c0ae27349356ed39c9e78b99b7830bb093856
   UMFaceDetectorInterface: 24faf81d90fb00d477c674fd00b9cb005176f4a0
   UMFileSystemInterface: 5216dca58177014de7f1157d69c70a1ec5c620bb
   UMFontInterface: 4d0f13001fc59436125d7424cdfa7c897b699724

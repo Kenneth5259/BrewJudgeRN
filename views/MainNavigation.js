@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import BrewMap from './BrewMap/BrewMap';
 import AuthView from './authView/authView';
+import CameraView from './cameraView/cameraView';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,7 @@ const MainNavigation = () => {
             <Tab.Navigator tabBarOptions={{style: {backgroundColor: 'black', justifyContent: 'center'}, labelStyle:{fontSize: 18}}} >
                 <Tab.Screen name="Map" component={BrewMap} />
                 <Tab.Screen name="Auth" component={AuthView}/>
+                <Tab.Screen name="Camera" component={CameraView}/>
             </Tab.Navigator>
         </NavigationContainer>
        
