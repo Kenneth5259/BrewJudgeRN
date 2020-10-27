@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 import {Camera} from 'expo-camera';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import axios from 'axios';
 
 const CameraView = () => {
     const [hasPermission, setHasPermission] = useState(null);
@@ -9,10 +11,14 @@ const CameraView = () => {
 
     const snapPhoto = async () => {
         console.log('Button Pressed')
-        const cameraOptions = {quality: 1, base64: true, fixOrientation: true, exif: true};
+        const cameraOptions = {quality: 0, base64: true, fixOrientation: true, exif: false};
         await this.camera.takePictureAsync(cameraOptions)
             .then(picture => {
-                console.log(picture.base64);
+                
+                axios.post('http://192.168.1.7:3000/scan/image', {image: picture})
+                    .then()
+                    .catch(err => console.error(err));
+
             })
         console.log('Picture Taken')
     }
@@ -24,14 +30,31 @@ const CameraView = () => {
         })();
     }, []);
 
-    return (<View style={{display: 'flex', flex: 1}}>
+    return (
+    <View style={styles.mainView}>
        <Camera ref={(ref) => {this.camera = ref}}style={{flex: 1}}>
            <View style={{flex: 1, backgroundColor: 'transparent'}}>
 
            </View>
-           <TouchableOpacity onPress={snapPhoto} style={{height: '28%', width: '15%', alignSelf:'center', backgroundColor: 'red', borderRadius: 25, marginBottom: '-20%'}}/>
+           <TouchableOpacity onPress={snapPhoto} style={styles.cameraButton}/>
        </Camera>
     </View>)
 }
+
+const styles = StyleSheet.create({
+    mainView : {
+        display: 'flex', flex: 1
+    },
+    cameraButton: {
+        borderColor: 'white',
+        backgroundColor: 'rgba(255,255,255,0.3)',
+        borderWidth: 2,
+        borderRadius: 40,
+        alignSelf: 'center',
+        marginBottom: 25,
+        height: 80,
+        width: 80
+    }
+});
 
 export default CameraView;
