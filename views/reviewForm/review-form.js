@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View, Text} from 'react-native';
 import Slider from '@react-native-community/slider';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ReviewForm = () => {
+const ReviewForm = (props) => {
     const [review, updateReview] = useState({reviewTitle: 'Title', reviewBody: 'Body', reviewValue: '5'});
+    
+    useEffect(() => {
+        if(props.review !== undefined) {
+            console.log(props.review)
+            updateReview(props.review);
+        }
+    }, [])
 
     const postInformation = () => {
         return;
