@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, FlatList, StyleSheet} from 'react-native';
+import {SafeAreaView, FlatList, StyleSheet, ActivityIndicator, Text} from 'react-native';
 
 import Review from './review';
 
@@ -60,22 +60,24 @@ const Reviews = [
     }
 ];
 
-const ReviewListView = () => {
+const ReviewListView = ({item}) => {
 
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 3000);
+        
     }, [])
 
     
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor: '#c2c2c2'}}>
+            <Text>{item ? item.title : null}</Text>
             {isLoading ? 
-            null : 
+            <ActivityIndicator size='large'/> : 
             <FlatList
                 data={Reviews}
-                renderItem={item => (<Review review={item.item}/>)}
+                renderItem={item => (<Review review={item}/>)}
                 keyExtractor={review => review.id}
                 contentContainerStyle={styles.reviewList}
             />  }
@@ -87,7 +89,8 @@ const ReviewListView = () => {
 
 const styles = StyleSheet.create({
     reviewList: {
-      height: '100%'
+      height: '100%', 
+      backgroundColor: '#c2c2c2'
     }
 });
 
