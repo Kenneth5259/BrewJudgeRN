@@ -15,7 +15,7 @@ const CameraView = () => {
         await this.camera.takePictureAsync(cameraOptions)
             .then(picture => {
                 
-                axios.post('http://192.168.1.7:3000/scan/image', {image: picture})
+                axios.post('http://localhost:3000/scan/image', {image: picture})
                     .then()
                     .catch(err => console.error(err));
 
